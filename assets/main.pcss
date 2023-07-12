@@ -1,0 +1,27 @@
+body {
+  @apply bg-ayu-white;
+}
+
+.hint-url {
+  @apply text-gray-400 transition hover:text-gray-700;
+}
+
+.btn-base {
+  @apply select-none rounded-full border px-5 py-2 text-center font-medium transition;
+}
+
+.cool-btn {
+  @apply btn-base bg-white hover:bg-indigo-50 disabled:bg-gray-50;
+}
+
+.bad-btn {
+  @apply btn-base bg-white hover:bg-pink-100 disabled:bg-gray-50;
+}
+
+.cool-input {
+  @apply rounded-full border px-5 py-2 text-center font-medium outline-none transition;
+}
+
+*::selection {
+  @apply bg-indigo-400/40;
+}

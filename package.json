@@ -1,0 +1,26 @@
+{
+  "name": "ayusync",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare",
+    "lint": "prettier --write --list-different ."
+  },
+  "devDependencies": {
+    "@nuxt/devtools": "latest",
+    "@nuxtjs/tailwindcss": "^6.7.2",
+    "@pinia-plugin-persistedstate/nuxt": "^1.1.1",
+    "@pinia/nuxt": "^0.4.11",
+    "@types/node": "^18",
+    "nuxt": "^3.5.2",
+    "nuxt-icon": "^0.4.1",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.3.0"
+  },
+  "dependencies": {
+    "@solana/qr-code-styling": "^1.6.0"
+  }
+}
