@@ -23,19 +23,6 @@ async function getUser() {
 
 const { data: user } = await useLazyAsyncData("user", () => getUser());
 
-const mvpUntil = computed(() => {
-  if (!user.value) {
-    return "?";
-  }
-
-  if (!user.value.mvpUntil) {
-    return "none";
-  }
-
-  const date = new Date(user.value.mvpUntil);
-  return date.toLocaleDateString() + " " + date.toLocaleTimeString();
-});
-
 async function logout() {
   mainStore.token = "";
   user.value = null;
@@ -91,8 +78,8 @@ onMounted(verifyToken);
             >{{ user?.accessToken }}</code
           >
           <br />
-          <p class="font-bold">AyuGram MVP status until</p>
-          <p>{{ mvpUntil }}</p>
+          <p class="font-bold">AyuGram MVP</p>
+          <p>{{ user?.isMVP ? "yes" : "no" }}</p>
           <div v-if="user?.devices && user?.devices.length > 0">
             <br />
             <p class="font-bold">Devices</p>

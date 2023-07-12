@@ -7,6 +7,6 @@ interface AyuDevice {
 interface AyuUser {
   id: string;
   accessToken: string;
-  mvpUntil: ?string;
+  isMVP: boolean;
   devices: AyuDevice[];
 }

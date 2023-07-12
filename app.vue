@@ -1,8 +1,4 @@
 <script lang="ts" setup>
-import { useMainStore } from "~/stores/main";
-
-const mainStore = useMainStore();
-
 useSeoMeta({
   title: "AyuSync Official Server",
   description:
