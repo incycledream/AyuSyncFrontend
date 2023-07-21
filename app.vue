@@ -1,8 +1,12 @@
 <script lang="ts" setup>
+const config = useRuntimeConfig();
+
+const isOfficial = config.public.official;
+const officialStr = isOfficial ? "Official" : "Self-Hosted";
+
 useSeoMeta({
-  title: "AyuSync Official Server",
-  description:
-    "Official synchronization server for AyuGram - unofficial Telegram client.",
+  title: `AyuSync ${officialStr} Server`,
+  description: `${officialStr} synchronization server for AyuGram - unofficial Telegram client.`,
 });
 
 useHead({
@@ -56,19 +60,20 @@ useHead({
         <nuxt-link class="cursor-default text-3xl font-bold" to="/">
           AyuGram Sync Server
         </nuxt-link>
-        <p class="hint-url self-end">
+        <p v-if="isOfficial" class="hint-url self-end">
           hosted by
           <nuxt-link target="_blank" to="https://radolyn.com"
             >Radolyn Labs
           </nuxt-link>
         </p>
+        <p v-else class="hint-url self-end">self-hosted</p>
       </div>
     </div>
   </div>
   <div class="container mx-auto mt-4 px-4 md:mt-12">
     <NuxtPage />
   </div>
-  <footer class="mt-20 flex justify-center space-x-4 pb-16">
+  <footer v-if="isOfficial" class="mt-20 flex justify-center space-x-4 pb-16">
     <nuxt-link class="hint-url" to="/limits">Limits</nuxt-link>
     <p class="select-none">•</p>
     <nuxt-link class="hint-url" to="/privacy">Privacy Policy</nuxt-link>

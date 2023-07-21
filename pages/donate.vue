@@ -5,16 +5,24 @@ const selectedMethodId = ref();
 
 const methods = [
   {
-    id: "usdt_tron",
-    label: "USDT TRC-20",
-    icon: "cryptocurrency-color:usdt",
-    value: "TRpbajq38qU8joThgAfKJLyEPbNjzsdPJ1",
+    id: "boosty",
+    label: "Boosty",
+    icon: "uil:vk",
+    value: "https://boosty.to/alexeyzavar",
+    qrCode: false,
   },
   {
     id: "qiwi",
     label: "QIWI",
     icon: "cryptocurrency-color:qiwi",
     value: "https://qiwi.com/n/ALEXEYZAVAR",
+    qrCode: false,
+  },
+  {
+    id: "usdt_tron",
+    label: "USDT TRC-20",
+    icon: "cryptocurrency-color:usdt",
+    value: "TRpbajq38qU8joThgAfKJLyEPbNjzsdPJ1",
   },
   {
     id: "trx",
@@ -85,7 +93,7 @@ const qrCodeUrl = computed(() => {
   <div class="flex flex-col items-center">
     <div class="flex flex-col">
       <div
-        class="flex flex-col space-y-4 lg:flex-row lg:space-x-4 lg:space-y-0"
+        class="flex flex-col space-y-4 xl:flex-row xl:space-x-4 xl:space-y-0"
       >
         <div
           v-for="method in methods"
@@ -104,7 +112,7 @@ const qrCodeUrl = computed(() => {
     <div v-if="selectedMethodId" class="flex flex-col items-center">
       <br />
       <br />
-      <div v-if="selectedMethodId === 'qiwi'">
+      <div v-if="selectedMethod.qrCode === false">
         <a :href="selectedMethod.value" target="_blank">
           <div class="cool-btn w-fit">Go to {{ selectedMethod.label }}</div>
         </a>
@@ -128,8 +136,8 @@ const qrCodeUrl = computed(() => {
         <nuxt-link
           class="hint-url"
           target="_blank"
-          to="https://t.me/radolyn_services"
-          >@radolyn_services
+          to="https://t.me/alexeyzavar"
+          >@alexeyzavar
         </nuxt-link>
         after donation.
       </p>

@@ -13,6 +13,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiUrl: "https://ayusync.radolyn.com",
+      official: false,
     },
   },
 });

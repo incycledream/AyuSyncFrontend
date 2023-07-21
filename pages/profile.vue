@@ -5,6 +5,8 @@ import { $fetch } from "ofetch";
 const route = useRoute();
 const config = useRuntimeConfig();
 
+const isOfficial = config.public.official;
+
 const mainStore = useMainStore();
 
 async function getUser() {
@@ -14,7 +16,7 @@ async function getUser() {
 
   console.log(mainStore.token);
 
-  return await $fetch(config.public.apiUrl + "/v1/ayu/info", {
+  return await $fetch(config.public.apiUrl + "/user/v1", {
     headers: {
       Authorization: mainStore.token,
     },
@@ -37,6 +39,10 @@ async function verifyToken() {
   }
 
   await refreshNuxtData();
+
+  if (!user.value) {
+    await logout();
+  }
 }
 
 async function saveTokenFromUrl() {
@@ -71,7 +77,7 @@ onMounted(verifyToken);
             user?.id
           }}</code>
           <br />
-          <p class="font-bold">Token</p>
+          <p class="font-bold">Access token</p>
           <code
             class="break-all md:select-all"
             @click="copyText(user?.accessToken)"
@@ -85,15 +91,19 @@ onMounted(verifyToken);
             <p class="font-bold">Devices</p>
             <ul class="list-inside">
               <li v-for="device in user.devices">
-                {{ device.name }} (<code class="break-all md:select-all">{{
-                  device.identifier
-                }}</code
+                {{ device.isConnected ? "🌐" : "💤" }} {{ device.name }} (<code
+                  class="truncate break-all md:select-all"
+                  >{{ device.identifier }}</code
                 >)
               </li>
             </ul>
           </div>
           <div class="mt-6 flex w-full justify-between space-x-4">
-            <button class="cool-btn" @click="navigateTo('/donate')">
+            <button
+              v-if="isOfficial"
+              class="cool-btn"
+              @click="navigateTo('/donate')"
+            >
               Donate
             </button>
             <button class="bad-btn" @click="logout">Log out</button>

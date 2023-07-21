@@ -26,7 +26,7 @@
     <p>Yes, you can. <i>But do you really want to?</i></p>
     <br />
     <p class="font-bold">How much does it cost?</p>
-    <p>Not much. You'll get a lifetime account just for 5$. <br /></p>
+    <p>As much as you want, starting from 1$. <br /></p>
     <br />
     <p class="font-bold">How can I donate?</p>
     <p>

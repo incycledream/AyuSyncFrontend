@@ -2,6 +2,7 @@ interface AyuDevice {
   name: string;
   identifier: string;
   ayuUserId: string;
+  isConnected: boolean;
 }
 
 interface AyuUser {

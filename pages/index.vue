@@ -16,9 +16,12 @@ async function createUser() {
   errorText.value = "";
 
   try {
-    const res = await $fetch<AyuUser>(config.public.apiUrl + "/v1/ayu/create", {
-      method: "POST",
-    });
+    const res = await $fetch<AyuUser>(
+      config.public.apiUrl + "/user/create/v1",
+      {
+        method: "POST",
+      }
+    );
 
     mainStore.token = res.accessToken;
     buttonsDisabled.value = false;
@@ -43,7 +46,7 @@ async function signIn() {
   errorText.value = "";
 
   try {
-    await $fetch<AyuUser>(config.public.apiUrl + "/v1/ayu/info", {
+    await $fetch<AyuUser>(config.public.apiUrl + "/user/v1", {
       method: "GET",
       headers: {
         Authorization: signInToken.value,
