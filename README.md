@@ -1,6 +1,6 @@
 # AyuGram Sync Server Frontend
 
-It's hosted [here](https://ayusync.radolyn.com/ui).
+It's hosted [here](https://ayusync.cloud/ui).
 
 ## Setup
 
